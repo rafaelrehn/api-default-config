@@ -1,0 +1,51 @@
+{
+  "name": "api_init",
+  "version": "1.0.0",
+  "description": "Default start config API",
+  "main": "index.ts",
+  "scripts": {
+    "start": "nodemon --exec ts-node src/index.ts",
+    "test": "jest",
+    "test:related": "jest --bail --findRelatedTests tests/**.ts",
+    "lint": "eslint 'src/**' 'tests/**' --ext .ts",
+    "lint:fix": "eslint 'src/**' --fix",
+    "prettier": "prettier --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --allow-empty"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run prettier",
+      "npm run lint:fix",
+      "npm run test:related"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.14.4",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^14.14.31",
+    "@types/pg": "^7.14.11",
+    "@types/uuid": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "babel-jest": "25.1.0",
+    "eslint": "^7.27.0",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^4.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^11.0.0",
+    "nodemon": "^2.0.7",
+    "ts-jest": "^26.5.6",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.1.6",
+    "typescript": "^4.2.4",
+    "prettier": "^2.3.0"
+  },
+  "dependencies": {}
+}
